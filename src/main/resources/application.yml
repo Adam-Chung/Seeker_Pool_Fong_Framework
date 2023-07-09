@@ -1,0 +1,29 @@
+# ===datasource config===
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seeker_fong_schemas
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      connection-timeout: 30000
+
+#(必要設定) JPA/Hibernate
+  jpa:
+    show-sql: true 
+    database-platform: org.hibernate.dialect.MySQLDialect 
+    
+#server相關
+#server:
+#  servlet:
+#    context-path: /SeekerPoolBoot #修改專案名稱，預設沒有
+    
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#连接超时时间（毫秒）
+    timeout: 10000ms
+    lettuce:
+      shutdown-timeout: 100ms
