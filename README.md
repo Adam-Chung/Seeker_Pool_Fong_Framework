@@ -7,7 +7,7 @@
 
 ## 技術使用
 #### 專案建立：Spring Boot Project
-#### 前端技術：HTML、CSS、JavaScript、JQuery、RWD、AJAX
+#### 前端技術：HTML、CSS、JavaScript、JQuery、AJAX
 #### 後端技術：MVC 架構 + Spring Framework、Spring MVC、Spring Boot、Spring Data JPA
 #### 資料庫使用：MySQL、Redis
 
