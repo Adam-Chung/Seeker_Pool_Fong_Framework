@@ -39,8 +39,17 @@
             if (flag === true) {
                 ($(thisIs).closest(".job-info-block")).remove();
                 //發送數據到服務器
-                $.post("/member/deletCollectArticle", { arNo: arNo }, function () {
-                });
+                $.ajax({
+					url: '/member/deletCollectArticle',
+					type: 'DELETE',
+					data: {arNo: arNo},
+					async: false,//同步請求
+					cache: false,//不快取頁面
+					success: function () {
+					},
+					error: function () {
+					}
+				});
             }
             load(null);
             location.reload();

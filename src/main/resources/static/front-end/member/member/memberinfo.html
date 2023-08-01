@@ -114,7 +114,16 @@
       if (flag === true) {
         ($(thisIs).closest("li")).remove();
 
-        $.post('/member/delBlockCom', { deleteBlockCom: blockName }, function () {
+        $.ajax({
+          url: '/member/delBlockCom',//接受請求的Servlet地址
+          type: 'DELETE',
+          data: { deleteBlockCom: blockName },
+          async: false,//同步請求
+          cache: false,//不快取頁面
+          success: function () {   
+          },
+          error: function () {
+          }
         });
 
       }

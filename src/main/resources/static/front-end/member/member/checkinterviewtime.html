@@ -28,14 +28,23 @@
         function interviewtimecheck() {
             let checktime = getParameter("checktime");
 
-            $.post("/member/interviewInvite", { checktime: checktime, "checkbtn": "checkbtn", }, function (data) {
-                if (data.flag) {
-                    alert(data.msg);
-                    location.href = "memberlogin.html";
-                } else {
-                    alert(data.msg);
-                }
-            });
+            $.ajax({
+				url: '/member/interviewInvite',
+				type: 'PUT',
+				data: {checktime: checktime, "checkbtn": "checkbtn", },
+				async: false,//同步請求
+				cache: false,//不快取頁面
+				success: function () {
+					if (data.flag) {
+						alert(data.msg);
+						location.href = "memberlogin.html";
+					} else {
+						alert(data.msg);
+					}
+				},
+				error: function () {
+				}
+			});
         };
 
         //到此頁面，秀出日期
