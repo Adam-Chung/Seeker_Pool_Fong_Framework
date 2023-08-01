@@ -12,6 +12,7 @@ import javax.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -145,7 +146,7 @@ public class MemberController {
 	/**
 	 * 刪除屏蔽企業
 	 */
-	@PostMapping("/delBlockCom")
+	@DeleteMapping("/delBlockCom")
 	public void delBlockCom(@RequestParam String deleteBlockCom) {
 		deleteBlockCom = deleteBlockCom.trim();
 		Integer memId = (Integer) request.getSession().getAttribute("memberLogin");
@@ -334,7 +335,7 @@ public class MemberController {
 	/**
 	 * 刪除收藏文章
 	 */
-	@PostMapping("/deletCollectArticle")
+	@DeleteMapping("/deletCollectArticle")
 	public void deletCollectArticle(@RequestParam String arNo) {
 		Integer arNoInteger = Integer.valueOf(arNo.trim());
 		Integer memId = (Integer) request.getSession().getAttribute("memberLogin");
@@ -371,7 +372,7 @@ public class MemberController {
 	/**
 	 * 刪除收藏職缺
 	 */
-	@PostMapping("/deletCollectJob")
+	@DeleteMapping("/deletCollectJob")
 	public void deletCollectJob(@RequestParam String jobNo) {
 		Integer jobNoInteger = Integer.valueOf(jobNo.trim());
 		Integer memId = (Integer) request.getSession().getAttribute("memberLogin");
@@ -418,7 +419,7 @@ public class MemberController {
 	/**
 	 * 取消面試
 	 */
-	@PostMapping("/cancelInterview")
+	@PutMapping("/cancelInterview")
 	public void cancelInterview(@RequestParam String comName, @RequestParam String jobName) {
 
 		Integer memId = (Integer) request.getSession().getAttribute("memberLogin");
@@ -430,7 +431,7 @@ public class MemberController {
 	/**
 	 * 確認面試時間
 	 */
-	@PostMapping("/interviewInvite")
+	@PutMapping("/interviewInvite")
 	public ResultInfo interviewInvite() {
 		String checkbtn = request.getParameter("checkbtn");
 		String checktime = request.getParameter("checktime");
